@@ -4,7 +4,7 @@ Created on Mon Jan 11 21:55:30 2021
 
 @author: salem
 """
-from IPython.display import display
+from IPython.display import display 
 import sqlite3
 from sqlite3 import Error
 import pandas as pd
@@ -21,22 +21,22 @@ class database():
     columns = []
     __data= ''
     __tables = ''
-   
-    
+
+
     def __init__(self):
         
         # it only needed to call (get) self.tables so it will issue a qurey that already in get method!
         self.tables
         
         self.history = history()
-        
-    
+
+
     @property
     def query(self):
 
         print(self.__query)
         return self.__query
-        
+
     @query.setter
     def query(self,stmt):
         self.__query = stmt
@@ -149,11 +149,12 @@ class nc(database):
 
 
 def main():
-    db=nc()
+    pass
+    # db=nc()
     # newclass = nc()
 
 
 if __name__ == "__main__":
-    main()
+    # main()
     db=nc()
 
