@@ -28,7 +28,7 @@ class database():
         # it only needed to call (get) self.tables so it will issue a qurey that already in get method!
         self.tables
         
-        self.history = history()
+        # self.history = history()
 
 
     @property
@@ -120,15 +120,16 @@ class database():
 
 
 class nc(database):
+    
     __cmd_history = []
     saving_history = ''
     hi = 'Hello'
        
     
     def __init__(self):
+        self.history = history()
         self.saving_history = input('yes/no : ')
         # print('Hello From class')
-        
         
         
     def save_history(self,stmt):
