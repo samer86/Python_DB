@@ -83,7 +83,10 @@ class database():
                     # display(self.__data)
                     self.save_history(stmt)
                     
-                    
+            ''' Add Affected Rows if there are any '''        
+            if res.rowcount != -1:
+                print(f'Affected rows: {res.rowcount}')
+
             #Closing connection: cursor
             cursor.close()
             
