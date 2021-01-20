@@ -52,7 +52,7 @@ class database():
             else:
                 self.columns=[]
                 # print(self.columns)
-            '''save results into self.results using genertor method!'''
+            '''save results into self.results using generator method!'''
             results = [row for row in rows]
             if len(results)> 0 :
                 self.results = results
