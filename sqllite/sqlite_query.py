@@ -25,7 +25,7 @@ class database():
 
     def __init__(self):
         
-        # it only needed to call (get) self.tables so it will issue a qurey that already in get method!
+        # it only needed to call (get) self.tables so it will issue a query that already in get method!
         self.tables
         
         # self.history = history()
