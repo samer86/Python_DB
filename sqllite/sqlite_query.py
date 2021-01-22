@@ -21,6 +21,7 @@ class database():
     columns = []
     __data= ''
     __tables = ''
+    auto_print = True
 
 
     def __init__(self):
@@ -69,7 +70,8 @@ class database():
 
             if len(results)>0:
                 self.__data= pd.DataFrame(rows,columns=self.columns)
-                print(self.__data.to_string(index=False))
+                if self.auto_print:
+                    print(self.__data.to_string(index=False))
                 # display(self.__data)
                 self.save_history(stmt)
             else:
@@ -79,7 +81,9 @@ class database():
                 else :
                     # print('hello from else' )
                     self.__data = pd.DataFrame(rows,columns=self.columns)
-                    print(pd.DataFrame(rows,columns=self.columns))
+
+                    if self.auto_print:
+                        print(pd.DataFrame(rows,columns=self.columns))
                     # display(self.__data)
                     self.save_history(stmt)
                     
