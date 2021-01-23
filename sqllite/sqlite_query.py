@@ -70,6 +70,7 @@ class database():
 
             if len(results)>0:
                 self.__data= pd.DataFrame(rows,columns=self.columns)
+                
                 if self.auto_print:
                     print(self.__data.to_string(index=False))
                 # display(self.__data)
@@ -160,6 +161,7 @@ def main():
     pass
     # db=nc()
     # newclass = nc()
+    
 
 
 if __name__ == "__main__":
