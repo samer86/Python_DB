@@ -74,8 +74,8 @@ class c():
         ''' Adding Tables as attributes'''
         for key, value in tables.items():
             self.__dict__[key] = value
-            
-            
+
+
     def read(self,*tab):
         ''' Reading from tables, serving 2 options:
             1. reading general will list all tables to choose from.
