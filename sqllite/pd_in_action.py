@@ -43,22 +43,11 @@ class database():
         self.__query = stmt
         #Create cursor and send stmt query to database
         try:
-            cursor = conn.cursor()
-            res = cursor.execute(stmt)
-            rows =res.fetchall()
-            #Save columns from the query into self.columns
-            if isinstance(cursor.description,tuple):
-                self.columns= [tuple[0] for tuple in cursor.description]
-                # print(self.columns)
-            else:
-                self.columns=[]
-                # print(self.columns)
-            '''save results into self.results using generator method!'''
-            results = [row for row in rows]
-            if len(results)> 0 :
-                self.results = results
-            else:
-                self.results = 'There are no data to show!'
+            # cursor = conn.cursor()
+            # res = cursor.execute(stmt)
+            # rows =res.fetchall()
+            # #Save columns from the query into self.columns
+            
 
             '''
             1. Make a dataframe from (rows and columns) if rows has data.
@@ -69,7 +58,7 @@ class database():
             '''
 
             if len(results)>0:
-                self.__data= pd.DataFrame(rows,columns=self.columns)
+                self.__data= pd.read_sql_query(stmt, conn)
                 
                 if self.auto_print:
                     print(self.__data.to_string(index=False))
