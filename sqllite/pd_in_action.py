@@ -11,10 +11,7 @@ import pandas as pd
 import sys
 '''CONNECT USING sqlite3 '''
 c = sqlite3.connect('class.db')
-# conn = sqlite3.connect('class.db')
-# cursor = conn.cursor()
 print("Opened database successfully")
-# cursor.close()
 
 
 class database():
