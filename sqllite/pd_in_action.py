@@ -10,11 +10,13 @@ from sqlite3 import Error
 import pandas as pd
 import sys
 '''CONNECT USING sqlite3 '''
-c = sqlite3.connect('class.db')
 print("Opened database successfully")
+
+# c = sqlite3.connect('class.db')
 
 
 class database():
+    __c = ''
     stmt = ''
     results = []
     columns = []
@@ -22,7 +24,8 @@ class database():
     __tables = ''
     auto_print = True
 
-    def __init__(self):
+    def __init__(self, db_name):
+        self.__c = sqlite3.connect(db_name)
         self.tables
 
     @property
@@ -34,10 +37,10 @@ class database():
         self.__query = stmt
         try:
             if stmt.lower().strip()[0:6] == 'select':
-                self.__data = pd.read_sql_query(stmt, c, **kwargs)
+                self.__data = pd.read_sql_query(stmt, self.__c, **kwargs)
                 print(self.__data)
             else:
-                res = c.execute(stmt)
+                res = self.__c.execute(stmt)
                 print('Query Successfully Finished!')
                 self.__data = 'No Returned Data'
                 if res.rowcount != -1:
@@ -47,7 +50,7 @@ class database():
             print(sys.exc_info()[1])
 
         finally:
-            pass
+            return self.__data
 
     def data(self):
         return self.__data
@@ -74,7 +77,7 @@ class database():
             super().__setattr__(name, value)
 
 
-db = database()
+# db = database()
 
 
 ########## [####] ###########
