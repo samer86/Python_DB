@@ -94,3 +94,9 @@ class database():
             super().__setattr__(name, value)
 
 # db = database()
+
+
+''' Importing this lines: '''
+# from sqliteDB_SS import database
+# db = database('Northwind2020.db')
+# q = lambda x,**kwargs: db.query(x,**kwargs)
